@@ -34,42 +34,42 @@
             <div class="row">
                <div class="col-lg-8">
                <div class="border border-1 p-4 rounded">
-                <div class="mb-3">
+                <div class="mb-3 form-group">
                     <label for="inputProductTitle" class="form-label">Product Name</label>
-                    <input type="text" name="product_name" class="form-control form-group" id="inputProductTitle" placeholder="Enter product title">
+                    <input type="text" name="product_name" class="form-control" id="inputProductTitle" placeholder="Enter product title">
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3 form-group">
                     <label for="inputProductTitle" class="form-label">Product Tags</label>
                     <input type="text" name="product_tag" class="form-control visually-hidden" data-role="tagsinput" value="New Product,Top Product ">
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-3 form-group">
                     <label for="inputProductTitle" class="form-label">Product Size</label>
                     <input type="text" name="product_size" class="form-control visually-hidden" data-role="tagsinput" value="Smail, Midium,Large ">
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-3 form-group">
                     <label for="inputProductTitle" class="form-label">Product Color</label>
                     <input type="text" name="product_color" class="form-control visually-hidden" data-role="tagsinput" value="Red,Blue,Black,White ">
                   </div>
 
 
-                  <div class="mb-3">
+                  <div class="mb-3 form-group">
                     <label for="inputProductDescription" class="form-label">Short Description</label>
                     <textarea class="form-control" name="short_descp" id="inputProductDescription" rows="3"></textarea>
                   </div>
-                  <div class="mb-3">
-                    <label for="inputProductDescription" class="form-label">Short Description</label>
+                  <div class="mb-3 form-group">
+                    <label for="inputProductDescription" class="form-label">Long Description</label>
                     <textarea id="mytextarea" name="long_descp">Hello, World!</textarea>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 form-group">
                     <label for="inputProductDescription" class="form-label">Main Thambnail</label>
                     <input class="form-control" name="product_thambnail" type="file" id="formFile" onChange="mailThumUrl(this)">
                      <img src="" alt="" id="mailThumb">
 
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3 form-group">
                     <label for="inputProductDescription" class="form-label">Multiple Thambnail</label>
                     <input class="form-control" type="file" id="multiImage" multiple="" name="multi_image[]" > 
                     <div class="row" id="preview_img">
@@ -83,25 +83,25 @@
                <div class="col-lg-4">
                 <div class="border border-1 p-4 rounded">
                   <div class="row g-3">
-                    <div class="col-md-6">
+                    <div class="col-md-6 form-group">
                         <label for="inputPrice" class="form-label">Product Price</label>
                         <input type="text" name="selling_price"  class="form-control" id="inputPrice" placeholder="00.00">
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6 form-group">
                         <label for="inputPrice" class="form-label">Discount Price</label>
-                        <input type="text" name="discount_price"  class="form-control" id="inputPrice" placeholder="00.00">
+                        <input type="text" name="discount_price"  class="form-control" id="inputPrice" placeholder="00%">
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6 form-group">
                         <label for="inputCompareatprice" class="form-label">Product Code</label>
-                        <input type="text" name="product_code" class="form-control" id="inputCompareatprice" placeholder="00.00">
+                        <input type="text" name="product_code" class="form-control" id="inputCompareatprice" placeholder="00">
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6 form-group">
                         <label for="inputCompareatprice" class="form-label">Product-Quantity</label>
-                        <input type="text" name="product_qty" class="form-control" id="inputCompareatprice" placeholder="00.00">
+                        <input type="text" name="product_qty" class="form-control" id="inputCompareatprice" placeholder="00">
                       </div>
                   
                      
-                      <div class="col-12">
+                      <div class="col-12 form-group">
                         <label for="inputProductType" class="form-label">Product Brand</label>
                         <select  name="brand_id" class="form-select" id="inputProductType">
                             <option></option>
@@ -114,7 +114,7 @@
                             <option value="3">Three</option> --}}
                           </select>
                       </div>
-                      <div class="col-12">
+                      <div class="col-12 form-group">
                         <label for="inputVendor" class="form-label">Product Category</label>
                         <select name="category_id" class="form-select" id="inputVendor">
                             <option></option>
@@ -124,7 +124,7 @@
                          @endforeach
                           </select>
                       </div>
-                      <div class="col-12">
+                      <div class="col-12 form-group">
                         <label for="inputCollection" class="form-label">Product Subcategory</label>
                         <select  name="subcategory_id" class="form-select" id="inputCollection">
                             <option></option>
@@ -135,9 +135,9 @@
                            @endforeach
                           </select>
                       </div>
-                      <div class="col-12">
+                      <div class="col-12 form-group">
                         <label for="inputCollection" class="form-label"> Select_vandor</label>
-                        <select  name="venbdor_id" class="form-select" id="inputCollection">
+                        <select  name="vendor_id" class="form-select" id="inputCollection">
                             <option></option>
                             @foreach ($activevendor as $item)
                             <option value="{{ $item->id}}">{{ $item->name}}</option>
@@ -237,7 +237,19 @@
                 subcategory_id: {
                     required : true,
                 },
-                multiImage: {
+                multi_image: {
+                    required : true,
+                },
+                vendor_id: {
+                    required : true,
+                },
+                product_color: {
+                    required : true,
+                },
+                product_size: {
+                    required : true,
+                },
+                product_tag: {
                     required : true,
                 },
             },
@@ -263,26 +275,32 @@
                 product_code: {
                     required : 'Please Enter Product Code',
                 },
-                multiImage: {
+                multi_image: {
                     required : 'Please Select Multi Image ',
                 },
-                product_name: {
-                    required : 'Please Enter Product Name',
+                subcategory_id: {
+                    required : 'Please Enter Please Enter Subcategory',
                 },
-                short_desc: {
-                    required : 'Please Enter Short Description',
+                category_id: {
+                    required : 'Please Enter Please Enter Category',
                 },
-                product_name: {
-                    required : 'Please Enter Product Name',
+                product_qty: {
+                    required : 'Please Enter Product Product Quantity',
                 },
-                short_desc: {
-                    required : 'Please Enter Short Description',
+                brand_id: {
+                    required : 'Please Enter Brand Name',
                 },
-                product_name: {
-                    required : 'Please Enter Product Name',
+                vendor_id: {
+                    required : 'Please Enter Vendor Name',
                 },
-                short_desc: {
-                    required : 'Please Enter Short Description',
+                product_color: {
+                    required : 'Please Enter Product Color',
+                },
+                product_tag: {
+                    required : 'Please Enter Product Tag',
+                },
+                product_size: {
+                    required : 'Please Enter Product Size',
                 },
             },
             errorElement : 'span', 
