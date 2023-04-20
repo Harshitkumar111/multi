@@ -45,7 +45,7 @@
                                     <h6 class="mb-0">Category Photo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary form-group">
-                                    <input type="file" class="form-control"  name="category_image" id="image"/>
+                                    <input type="file" class="form-control "  name="category_image" id="image"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -83,7 +83,7 @@
                 },
             },
             messages :{
-                brand_name: {
+                category_name: {
                     required : 'Please Enter category Name',
                 },
                 category_image: {
