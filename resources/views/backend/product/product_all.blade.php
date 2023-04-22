@@ -47,7 +47,7 @@
                     
                     <td> <img src="{{ asset($item->product_thambnail)}}" alt="" style="width: 70px; height:40px;"></td>
                     <td>{{ $item->product_name}}</td>
-                    <td>{{ $item->selling_prize}}</td>
+                    <td>{{ $item->selling_price}}</td>
                     <td>{{ $item->product_qty}}</td>
                     <td>{{ $item->discount_price}}</td>
                     <td>{{ $item->status}}</td>

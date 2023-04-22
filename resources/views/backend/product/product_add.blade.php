@@ -26,7 +26,7 @@
           <h5 class="card-title">Add New Product</h5>
           <hr/>
 
-          <form action="{{ route('category.store')}}" method="post" id="myForm" enctype="multipart/form-data" >
+          <form action="{{ route('store.product')}}" method="post" id="myForm" enctype="multipart/form-data" >
             @csrf
 
            <div class="form-body mt-4">
@@ -41,7 +41,7 @@
 
                   <div class="mb-3 form-group">
                     <label for="inputProductTitle" class="form-label">Product Tags</label>
-                    <input type="text" name="product_tag" class="form-control visually-hidden" data-role="tagsinput" value="New Product,Top Product ">
+                    <input type="text" name="product_tags" class="form-control visually-hidden" data-role="tagsinput" value="New Product,Top Product ">
                   </div>
                   <div class="mb-3 form-group">
                     <label for="inputProductTitle" class="form-label">Product Size</label>
@@ -71,7 +71,7 @@
 
                   <div class="mb-3 form-group">
                     <label for="inputProductDescription" class="form-label">Multiple Thambnail</label>
-                    <input class="form-control" type="file" id="multiImage" multiple="" name="multi_image[]" > 
+                     <input class="form-control" type="file" id="multiImage" multiple="" name="multi_image[]" > 
                     <div class="row" id="preview_img">
 
                     </div>
