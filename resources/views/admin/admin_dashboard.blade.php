@@ -25,7 +25,7 @@
 	<link rel="stylesheet" href="{{ asset('adminbackend/assets/css/dark-theme.css') }}" />
 	<link rel="stylesheet" href="{{ asset('adminbackend/assets/css/semi-dark.css') }}" />
 	<link rel="stylesheet" href="{{ asset('adminbackend/assets/css/header-colors.css') }}" />
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="{{ asset('adminbackend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css')}}" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 	<title>Admin Dashboard</title>
