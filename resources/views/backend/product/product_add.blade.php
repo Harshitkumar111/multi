@@ -72,7 +72,7 @@
                   <div class="mb-3 form-group">
                     <label for="inputProductDescription" class="form-label">Multiple Thambnail</label>
                      <input class="form-control" type="file" id="multiImage" multiple="" name="multi_image[]" > 
-                    <div class="row" id="preview_img">
+                    <div class="row" alt="" id="preview_img">
 
                     </div>
                 </div>
@@ -335,27 +335,27 @@ function  mailThumUrl(input){
 }
 
 $(document).ready(function(){
-     $('#multiImage').on('change', function(){ //on file input change
-        if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+     $('#multiImage').on('change', function(){ 
+        if (window.File && window.FileReader && window.FileList && window.Blob) 
         {
-            var data = $(this)[0].files; //this file data
+            var data = $(this)[0].files; 
              
-            $.each(data, function(index, file){ //loop though each file
-                if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
-                    var fRead = new FileReader(); //new filereader
-                    fRead.onload = (function(file){ //trigger function on successful read
+            $.each(data, function(index, file){ 
+                if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ 
+                    var fRead = new FileReader();
+                    fRead.onload = (function(file){ 
                     return function(e) {
                         var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(100)
-                    .height(80); //create image element 
-                        $('#preview_img').append(img); //append image to output element
+                    .height(80); 
+                        $('#preview_img').append(img); 
                     };
                     })(file);
-                    fRead.readAsDataURL(file); //URL representing the file's data.
+                    fRead.readAsDataURL(file); 
                 }
             });
              
         }else{
-            alert("Your browser doesn't support File API!"); //if File API is absent
+            alert("Your browser doesn't support File API!"); 
         }
      });
     });
