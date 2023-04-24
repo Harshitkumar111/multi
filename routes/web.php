@@ -117,8 +117,10 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/all/product', 'allproduct')->name('all.product');
         Route::get('/add/product', 'addproduct')->name('add.product');
         Route::post('/store/product', 'storeProduct')->name('store.product');
-        Route::get('/edit/subcategory/{id}', 'Editsubcategory')->name('edit.product');
-        Route::post('/update/subcategory/{id}', 'updatesubcategory')->name('update.subcategory');
+        Route::get('/edit/product/{id}', 'Editproduct')->name('edit.product');
+        Route::post('/update/product/{id}', 'updateproduct')->name('update.product');
+        Route::post('/update/product/thambnail/{id}', 'updateproductthambnail')->name('update.product.thambnail');
+
         Route::get('/delete/subcategory/{id}', 'deletesubcategory')->name('delete.product');
     });
 });
