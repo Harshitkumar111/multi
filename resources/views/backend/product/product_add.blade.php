@@ -219,9 +219,7 @@
                 selling_price: {
                     required : true,
                 },
-                discount_price: {
-                    required : true,
-                },
+              
                 product_code: {
                     required : true,
                 },
@@ -269,9 +267,7 @@
                 selling_price: {
                     required : 'Please Enter Selling Price',
                 },
-                discount_price: {
-                    required : 'Please Enter Discount Price',
-                },
+              
                 product_code: {
                     required : 'Please Enter Product Code',
                 },

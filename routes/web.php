@@ -9,7 +9,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
-
+use App\Http\Middleware\RedirectIfAuthenticated;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,8 +71,8 @@ Route::middleware(['auth','role:vendor'])->group(function(){
 
 });
 
-Route::get('/admin/login',[AdminController::class, 'AdminLoging'])->name('admin.login');
-Route::get('/vendor/login',[VendorController::class, 'vendorLoging'])->name('vendor.login');
+Route::get('/admin/login',[AdminController::class, 'AdminLoging'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
+Route::get('/vendor/login',[VendorController::class, 'vendorLoging'])->name('vendor.login')->middleware(RedirectIfAuthenticated::class);
 Route::get('/become/vendor',[VendorController::class, 'becomevendor'])->name('become.vendor');
 Route::post('/register/vendor',[VendorController::class, 'registervendor'])->name('register.vendor');
 
@@ -120,7 +120,11 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/edit/product/{id}', 'Editproduct')->name('edit.product');
         Route::post('/update/product/{id}', 'updateproduct')->name('update.product');
         Route::post('/update/product/thambnail/{id}', 'updateproductthambnail')->name('update.product.thambnail');
+        Route::POST('/update/products/multi-img', 'updateproductmultiImage')->name('update.product.multiimage');
+        Route::get('/products/multiimage/delete/{id}', 'MultiImageDelete')->name('product.multiimage.delete');
+        Route::get('/products/inactive/{id}', 'productinactive')->name('product.inactive');
+        Route::get('/products/active/{id}', 'productactive')->name('product.active');
 
-        Route::get('/delete/subcategory/{id}', 'deletesubcategory')->name('delete.product');
+        Route::get('/delete/product/{id}', 'deleteproduct')->name('delete.product');
     });
 });
