@@ -223,6 +223,44 @@
         </div>
         </form>
     </div>
+
+    <h6 class="mb-0 text-uppercase" >Update Muthi Image</h6>
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <table class="table mb-0 table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Change Image</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <form action="{{ route('update.product.multiimage')}}" method="POST" enctype="multipart/form-data" >
+                        @csrf
+                        @foreach ($multiImages as $key =>$item)
+                        <tr>
+                            <th scope="row">{{$key+1 }}</th>
+                            <td><img src="{{ asset($item->photo_name)}}" alt="" style="width:70px; height:40px;" ></td>
+                            <td><input type="file" class="form-group" name="multi_img[{{$item->id}}]"></td>
+                            <td>
+                                <input type="submit" class="btn btn-primary px.4" value="Update Image"/>
+                                <a href="{{ route('product.multiimage.delete',$item->id)}}" class="btn btn-danger" id="delete" > Delete</a>
+                            </td>
+                        </tr>
+                            
+                        @endforeach
+                       
+                    </form>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
 </div>
 
 <script type="text/javascript">
@@ -244,9 +282,7 @@
                 selling_price: {
                     required : true,
                 },
-                discount_price: {
-                    required : true,
-                },
+              
                 product_code: {
                     required : true,
                 },
@@ -294,9 +330,7 @@
                 selling_price: {
                     required : 'Please Enter Selling Price',
                 },
-                discount_price: {
-                    required : 'Please Enter Discount Price',
-                },
+               
                 product_code: {
                     required : 'Please Enter Product Code',
                 },
